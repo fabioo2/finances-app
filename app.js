@@ -4,6 +4,7 @@ require('express-async-errors');
 const app = express();
 const cors = require('cors');
 
+const jobsRouter = require('./controllers/jobs');
 const usersRouter = require('./controllers/users');
 const loginRouter = require('./controllers/login');
 
@@ -23,7 +24,10 @@ mongoose.connect(config.MONGODB_URI, {
 
 app.use(cors());
 app.use(express.json());
+app.use(middleware.tokenExtractor);
+app.use(middleware.userExtractor);
 
+app.use('/api/jobs', jobsRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/login', loginRouter);
 

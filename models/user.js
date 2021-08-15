@@ -10,10 +10,7 @@ const userSchema = new mongoose.Schema({
     },
     name: String,
     passwordHash: String,
-    jobs: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Job',
-    },
+    jobs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Job' }],
 });
 
 userSchema.set('toJSON', {

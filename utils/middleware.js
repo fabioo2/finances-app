@@ -44,4 +44,6 @@ const userExtractor = async (request, response, next) => {
 module.exports = {
     unknownEndpoint,
     errorHandler,
+    tokenExtractor,
+    userExtractor,
 };
