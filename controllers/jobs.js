@@ -27,6 +27,7 @@ jobsRouter.post('/', async (request, response) => {
         date: body.date,
         client: body.client,
         amount: body.amount,
+        paid: body.paid,
     });
 
     const savedJob = await job.save();
